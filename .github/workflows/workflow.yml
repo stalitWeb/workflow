@@ -41,7 +41,10 @@ name: workflow
 
 # What event should trigger this action
 on:
-  pull_request
+  pull_request:
+    paths:
+      - "BACKEND-API-SERVICE-PROVIDERS/auth-service/**"
+
 
 jobs:
   build:
