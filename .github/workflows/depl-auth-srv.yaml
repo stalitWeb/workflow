@@ -1,0 +1,18 @@
+# wORKFLOW NAME
+name: depl-auth-srv
+
+# DEFINES THE TYPE OF EVENT
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '  BACKEND-API-SERVICE-PROVIDERS/auth/**'
+
+# DEFINE A JOB
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - runs: cd BACKEND-API-SERVICE-PROVIDERS/auth && docker build -t stalit/auth-srv .
