@@ -15,4 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - runs: cd BACKEND-API-SERVICE-PROVIDERS/auth && docker build -t stalit/auth-srv .
+      - run: cd BACKEND-API-SERVICE-PROVIDERS/auth && docker build -t stalit/auth-srv .
+      - run: docker login -u $DOCKER_USERNAME -P $DOCKER_PASSWORD
+        env: 
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - run: docker push slalit/auth-srv
