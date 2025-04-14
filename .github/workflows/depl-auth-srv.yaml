@@ -21,3 +21,11 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       - run: docker push slalit/auth-srv
+      - uses: digitalocean/actions-doctl@v2
+        with:
+          token: $DIGITALOCEAN_ACCESS_TOKEN
+        env: 
+            TOKEN: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }} 
+      - run: doctl kubernetes cluster kubeconfig save ticketing
+      # - run: cd infra/k8 && kubectl apply -f auth-srv-depl.yaml
+      - run: kubectl rollout restart deployment auth-srv-depl
