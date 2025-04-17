@@ -9,7 +9,7 @@ on:
     paths:
       - '  BACKEND-API-SERVICE-PROVIDERS/auth/**'
 
-# DEFINE A JOB
+# DEFINE A JOB AND STEPS 
 jobs:
   build:
     runs-on: ubuntu-latest
