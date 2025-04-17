@@ -1,7 +1,7 @@
 # wORKFLOW NAME
 name: depl-auth-srv
 
-# DEFINES THE TYPE OF EVENT
+# DEFINES THE TYPE OF EVENT THAT WILL TRIGGER THIS WORKFLOW 
 on:
   push:
     branches:
